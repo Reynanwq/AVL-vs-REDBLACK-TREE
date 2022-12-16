@@ -60,13 +60,13 @@ int REDBLACKpreOrdem(struct rbNode *raiz){
     //printf("\n\t\tQANTIDADE DE NO: %d\n", qtdNO);
     //printf("\n\t %d° Nó SOMA FINAL: %d\n", n11, aux77);
     aux77 = (aux77 * -1);
-    //printf("\n\tRED-BLACK -> %d° Nó SOMA FINAL NEG: %d\n", n11, aux77);
+    //printf("\n\t %d° Nó SOMA FINAL NEG: %d\n", n11, aux77);
     //printf("\t %d° NIVEL DE BALANCEAMENTO NB: %.2f\n", n2, NB);
     float NB = ((float)aux77/qtdNO);
    // printf("\t %d° NIVEL DE BALANCEAMENTO NB: %.2f\n", n22, NB);
     n11++;
     NB2 = fmax(NB, - NB);
-    //printf("\n\n\t RED-BLACK -> %d° NIVEL DE BALANCEAMENTO: %.2f", n22, NB2);
+    printf("\n\n\t RED-BLACK -> %d° NIVEL DE BALANCEAMENTO: %.2f", n22, NB2);
     n22++;
   }  
 }
@@ -258,7 +258,7 @@ int RBrot(int auxI, struct rbNode *raiz){
   int QQ = REDBLACKQuantoNo(raiz);
   float MediaRb = auxI/(float)QQ;
   printf("\n\n\tRED-BLACK -> MEDIA DE ROTAÇÕES: %.2f\n\n", MediaRb);
-  printf("\n\nRED-BLACK -> QTD ROTACAO DA REDBLACK: %d\n\n", auxI);
+  printf("\n\nRED-BLACK QTD ROTACAO DA REDBLACK: %d\n\n", auxI);
  // printf("\n\nQTD DE NO DA REDBLACK: %d\n\n", QQ);
 }
 
@@ -393,13 +393,13 @@ int preOrdem(No *raiz){
     preOrdem(raiz->esquerdo);
     preOrdem(raiz->direito);
     //printf("\n\t\tQANTIDADE DE NO: %d\n", qtdNO);
-   //printf("\n\t AVL -> %d° Nó SOMA FINAL: %d\n", n1, aux7);
+   printf("\n\t AVL -> %d° Nó SOMA FINAL: %d\n", n1, aux7);
     //printf("\t %d° NIVEL DE BALANCEAMENTO NB: %.2f\n", n2, NB);
     float NB = ((float)aux7/qtdNO);
     //printf("\t %d° NIVEL DE BALANCEAMENTO NB: %.2f\n", n2, NB);
     n1++;
     NB2 = fmax(NB, - NB);
-    //printf("\n\n\t AVL -> %d° NIVEL DE BALANCEAMENTO: %.2f", n2, NB2);
+    printf("\n\n\t AVL -> %d° NIVEL DE BALANCEAMENTO: %.2f", n2, NB2);
     n2++;
   }  
 }
@@ -507,7 +507,7 @@ No* balancear(No *raiz){
         //printf("\tMedio de Rotações: %.2f\n\n", MR);
   }
      float mediaRotacao = (aux/(float)QQQ);
-      printf("\n\tAVL -> QTD DE ROtaCAO %d\n", aux);
+      printf("\n\tAVL -> QTD DE ROpreOrdemTACAO %d\n", aux);
       printf("\n\tAVL -> QTD NO %d\n", QQQ);
       printf("\n\t\n \tAVL -> MÉDIA DE ROTAÇÕES: %.2f\n", mediaRotacao);
     return raiz;
@@ -570,7 +570,7 @@ No* buscar(No *raiz, int num){
 
 No* prog_exp(No* raiz){
     imprimir(raiz, 1);
-    //preOrdem(raiz);
+    preOrdem(raiz);
     if((balancear(raiz)) != NULL){
       printf("\n\n\tMEDIA DE ROTAÇÕES FINAL: ");
       balancear(raiz);
@@ -627,7 +627,7 @@ No* prog_print(char f[], No *raiz)
       printf("\tFATOR DE BALANCEAMENTO DA RAIZ: %d\n", fatb);
     }     
   }
-   //prog_exp(raiz);
+   prog_exp(raiz);
     }else{
         printf("\nArquivo não pode ser aberto!\n");
         getchar();
@@ -639,7 +639,7 @@ No* prog_print(char f[], No *raiz)
 
 int main(){
     No *raiz = NULL;
-    char minhaEntrada[] = ("input6.txt");
+    char minhaEntrada[] = ("input1.txt");
     prog_print(minhaEntrada, raiz);
     return 0;
-}//
+}
